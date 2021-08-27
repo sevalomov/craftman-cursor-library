@@ -1,0 +1,463 @@
+/* 
+ * An example of colors, but the colors will 
+ * need to be inserted on the site where you want to have a person 
+ */
+
+ :root {
+	--craftman-dialog-color:#f5f5f5;
+   --craftman-eye-mouth: #373a3a;
+   --craftman-index-color: #f38c21;
+   --craftman-face: linear-gradient(120deg, #f32121, #f36a21, #f38c21, #f3a921, #f3d921);
+}
+
+
+#craftMan {
+	margin-top: 60px;
+	margin-left: 60px;
+	position: absolute;
+	transition: all .34s ease;
+	pointer-events: none;
+	z-index: 99;
+ }
+ 
+ .emoji {
+	width: 60px;
+	height: 60px;
+	background: var(--craftman-face);
+	background-size: 1600% 1600%;
+	z-index: 1;
+	transition: 0.15s linear, transform 0s;
+	animation: blobRadius 5s ease infinite, blobBackground 15s ease infinite;
+ }
+ .veryHappy{
+	 top:0px;
+	 animation: blobRadius 5s ease infinite, blobBackground 15s ease infinite, veryHappy .8s ease infinite;
+ }
+ 
+ .laugh{
+	 top:0;
+	 animation: laugh 0.3s ease infinite, blobRadius 5s ease infinite, blobBackground 15s ease infinite;
+ }
+ 
+ 
+ @keyframes laugh {
+	 0% {
+	   padding-top:0px;
+	}
+	 50% {
+	   padding-top:10px;
+	}
+ 
+	 100% {
+	  padding-top:0px;
+	}
+ }
+ 
+ #dialog:after {
+	content: attr(data-value); 
+ }
+ 
+ #dialog {
+	 width: 150px;
+	padding: 25px;
+	margin-left:-140px;
+	margin-top:-110px;
+	text-align: center;
+	transition: all 0.3s ease;
+	background: var(--craftman-dialog-color);
+	background-size: 1600% 1600%;
+	transition: 0.15s linear, transform 0s;
+	animation: blobRadius 7s ease infinite, blobBackground 25s ease infinite;
+	transition: all .34s ease;
+	
+ }
+ 
+ .emoji-show {
+	transform: scale(1.0) !important;
+ }
+ 
+ .emoji-hide {
+	transform: scale(0) !important;
+ }
+ 
+ .emoji {
+	margin: 20px;
+	width: 50px height: 50px;
+	background-color: transparent;
+	border-radius: 50%;
+	position: relative;
+ }
+ 
+ .emoji .face {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: auto;
+	width: 63.3333333333px;
+	height: 53.3333333333px;
+	position: relative;
+ }
+ 
+ .emoji .face {
+	animation: happy-look-medium 5s infinite;
+ }
+ 
+ .emoji .face .eye {
+	width: 8.3333333333px;
+	height: 8.3333333333px;
+	background-color: var(--craftman-eye-mouth);
+	border-radius: 50%;
+	top: 15px;
+	transition: all 0.5s ease;
+	position: absolute;
+	animation: blink 4s infinite linear;
+ }
+ 
+ .evilSays .face .eye {
+	background-color: var(--craftman-eye-mouth);
+	border-radius: 50%;
+	top: 30px;
+	position: absolute;
+ }
+ 
+ .laugh .face .eye {
+	height:2px;
+	border-radius:50px;
+	width: 12px;
+	animation: inherit;
+ }
+ 
+ .face .eye.left:after, .face .eye.right:after {
+	width: 0px;
+	border-radius: 5px;
+	content: '';
+	border: 1px solid;
+	top: -20px;
+	opacity: 0;
+	left: 3px;
+	transition: all 0.3s ease;
+	font-size: 20px;
+	position: absolute;
+	border-width: 0px;
+	height: 0px;
+   
+ }
+ 
+ .laugh .face .eye.left:after {
+	border: solid;
+	top: 5px;
+	left: -15px;
+	font-size: 20px;
+	border-width: 3px;
+	height: 3px;
+	width:3px;
+	border-color:#74c3fb;
+	background-color:white;
+	border-radius:0px 50px 50px 50px;
+	transform: rotate(80deg);
+	opacity: 1;
+ }
+ 
+ .laugh .face .eye.right:after {
+	border: solid;
+	top: 5px;
+	left: 15px;
+	font-size: 20px;
+	border-width: 3px;
+	height: 3px;
+	width:3px;
+	border-color:#74c3fb;
+	background-color:white;
+	border-radius:0px 50px 50px 50px;
+	transform: rotate(0deg);
+	opacity: 1;
+ }
+ 
+ .evilSays .face .eye.left:after {
+	border: 2px solid;
+	top: -14px;
+	left: 7px;
+	font-size: 20px;
+	border-width: 1px;
+	height: 6px;
+	transform: rotate(-40deg);
+	opacity: 1;
+ }
+ .scary .face .eye.left:after {
+	border: 2px solid;
+	top: -6px;
+	left: -3px;
+	font-size: 20px;
+	border-width: 1px;
+	height: 6px;
+	transform: rotate(40deg);
+	opacity: 1;
+ }
+ 
+ .evilSays .face .eye.right:after {
+	border: 2px solid;
+	top: -14px;
+	right: 8px;
+	font-size: 20px;
+	border-width: 1px;
+	height: 6px;
+	transform: rotate(40deg);
+	opacity: 1;
+ }
+ .scary .face .eye.right:after {
+	border: 2px solid;
+	top: -6px;
+	left: 8px;
+	font-size: 20px;
+	border-width: 1px;
+	height: 6px;
+	transform: rotate(-40deg);
+	opacity: 1;
+ }
+ 
+ @keyframes blink {
+	59% {
+		height: 8.3333333333px;
+	}
+	60% {
+		height: 1.3333333333px;
+	}
+	63% {
+		height: 8.3333333333px;
+	}
+ }
+ 
+ .emoji .face .eye.left {
+	left: 12px;
+ }
+ 
+ .emoji .face .eye.right {
+	right: 15px;
+ }
+ 
+ .emoji .face .mouth {
+	width: 12px;
+	height: 16px;
+	transition: all 0.5s ease;
+	border-style: solid;
+	border-radius: 50%;
+	border-width: 2.6666666667px;
+	border-color: transparent transparent var(--craftman-eye-mouth) transparent;
+	left: 22px;
+	top: 20px;
+	position: absolute;
+ }
+ .laugh .face .mouth{
+	 border-color: var(--craftman-eye-mouth)  var(--craftman-eye-mouth)  var(--craftman-eye-mouth) var(--craftman-eye-mouth) ;
+	 background-color:var(--craftman-eye-mouth);
+	 width: 25px;
+	 height:15px;
+	 top:25px;
+	 border-radius:25px 25px 100px 100px;
+	 
+ }
+ 
+ .veryHappy .face .mouth{
+	 width: 35px;
+	 left: 12px;
+ }
+ .emoji.dissatis .face .mouth {
+	transform: rotate(180deg);
+	top: 40px
+ }
+ .emoji.scary .face .mouth {
+	transform: rotate(180deg);
+	top: 45px
+ }
+ 
+ .emoji.speaking .face .mouth {
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-radius: 50%;
+	border-width: 2.6666666667px;
+	border-color: var(--craftman-eye-mouth) !important;
+	left: 18px;
+	top: 30px;
+	position: absolute;
+	animation:  speaking 1s infinite;
+ }
+ 
+ .evilSays .face .mouth {
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-color: var(--craftman-eye-mouth) !important;
+	border-radius: 50%;
+	border-width: 2.6666666667px;
+	border-color:transparent;
+	left: 23px;
+	top: 45px;
+	position: absolute;
+	animation:  speaking 1s infinite;
+ }
+ 
+ .emoji.fixed .face {
+	animation: none !important;
+ }
+ 
+ .emoji.fixed .eye {
+	animation: none !important;
+ }
+ 
+ .emoji.fixed .mouth {
+	animation: none !important;
+ }
+ 
+ 
+ 
+ @keyframes happy-look-medium {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	10% {
+		transform: translate(3.3333333333px, 0px);
+	}
+	20% {
+		transform: translate(3.3333333333px, 0px);
+	}
+	30% {
+		transform: translate(0px, 0px);
+	}
+	60% {
+		transform: translate(0px, 0px);
+	}
+	70% {
+		transform: translate(-3.3333333333px, -5px);
+	}
+	80% {
+		transform: translate(-3.3333333333px, -5px);
+	}
+	90% {
+		transform: translate(0px, 0px);
+	}
+ }
+ 
+ 
+ 
+ 
+ 
+ @keyframes blobRadius {
+	0%, 100% {
+		border-radius: 43% 77% 80% 40%/40% 40% 80% 80%;
+	}
+	20% {
+		border-radius: 47% 73% 61% 59%/47% 75% 45% 73%;
+	}
+	40% {
+		border-radius: 46% 74% 74% 46%/74% 58% 62% 46%;
+	}
+	60% {
+		border-radius: 47% 73% 61% 59%/40% 40% 80% 80%;
+	}
+	80% {
+		border-radius: 50% 70% 52% 68%/51% 61% 59% 69%;
+	}
+ }
+ 
+ @keyframes speaking {
+	0%, 100% {
+		border-radius: 43% 77% 80% 40%/40% 40% 80% 80%;
+		width: 10px;
+		height: 7px;
+	}
+	20% {
+		border-radius: 47% 73% 61% 59%/47% 75% 45% 73%;
+		width: 8px;
+		height: 2px;
+	}
+	40% {
+		border-radius: 46% 74% 74% 46%/74% 58% 62% 46%;
+	}
+	60% {
+		border-radius: 47% 73% 61% 59%/40% 40% 80% 80%;
+		width: 12px;
+		height: 2px;
+	}
+	80% {
+		border-radius: 50% 70% 52% 68%/51% 61% 59% 69%;
+		width: 10px;
+		height: 2px;
+	}
+ }
+ 
+ @keyframes evilSays {
+	0%, 100% {
+		width: 10px;
+		height: 10px;
+		border-radius: 43% 77% 80% 40%/40% 40% 80% 80%;
+	}
+	20% {
+		border-radius: 47% 73% 61% 59%/47% 75% 45% 73%;
+	}
+	40% {
+		border-radius: 46% 74% 74% 46%/74% 58% 62% 46%;
+	}
+	60% {
+		border-radius: 47% 73% 61% 59%/40% 40% 80% 80%;
+	}
+	80% {
+		border-radius: 50% 70% 52% 68%/51% 61% 59% 69%;
+	}
+ }
+ @keyframes veryHappy {
+	0%{
+	   top:0px;
+	}
+	20% {
+		 top:-20px;
+	}
+	40% {
+		 top:20px;
+	}
+	80% {
+		 top:-20px;
+	}
+	 100% {
+		 top:20px;
+	}
+ }
+ 
+ @keyframes blobBackground {
+	0%, 100% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+ }
+ 
+ 
+ 
+ 
+ @media only screen and (max-width: 600px) {
+   #craftMan{
+	   width:100% !important;
+	   position:fixed !important;
+	   bottom: 0px !important;
+	   top:inherit !important;
+	   left: 0px !important;
+	   margin: 0 !important;
+   
+   }
+   .emoji {
+	 display: inherit;
+	 justify-content: inherit;
+	 flex-wrap: inherit; 
+	 margin: 20px;
+	  }
+	 #dialog{
+		 margin:0;
+		 dialog:inline-block;
+		 width:150px;
+		 bottom:10px;
+		 left:100px;
+		 position:absolute;
+	  }
+ 
+ }
